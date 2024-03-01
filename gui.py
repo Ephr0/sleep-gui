@@ -20,6 +20,7 @@ import webbrowser
 import configparser
 import sys
 import subprocess
+import threading
 from scheduler import ownSchedule
     
 root = Tk()
@@ -145,9 +146,7 @@ def applySettings():
     setSec["Time"] = Hour.get() + ":" + Minute.get()
     with open("settings.ini", "w") as f:
         con.write(f)
-    sys.exit()
-    subprocess.run()
-
+    os.execl("scheduler.py", "nothing")
 
 
 def gui():
@@ -163,3 +162,4 @@ def gui():
     
 if __name__ == "__main__":
     gui()
+    

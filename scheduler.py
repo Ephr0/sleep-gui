@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import schedule
 from script import runScript
 import configparser
@@ -19,8 +20,7 @@ schedule.tz = pytz.timezone("Europe/Budapest")
 def test():
     print("a bunch of words that is to check whether this program is working")
 
-
-def ownSchedule(time_in):
+def ownSchedule(time_in=None):
     schedule.every().day.at(time_in, "Europe/Budapest").do(runScript)
     while True:
         try:
